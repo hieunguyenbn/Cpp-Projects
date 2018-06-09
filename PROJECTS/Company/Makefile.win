@@ -1,0 +1,37 @@
+# Project: SoftwareCompany
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = SoftwareCompany.o STAFF.o Developer.o Salesman.o
+LINKOBJ  = SoftwareCompany.o STAFF.o Developer.o Salesman.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = SoftwareCompany.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+SoftwareCompany.o: SoftwareCompany.cpp
+	$(CPP) -c SoftwareCompany.cpp -o SoftwareCompany.o $(CXXFLAGS)
+
+STAFF.o: STAFF.cpp
+	$(CPP) -c STAFF.cpp -o STAFF.o $(CXXFLAGS)
+
+Developer.o: Developer.cpp
+	$(CPP) -c Developer.cpp -o Developer.o $(CXXFLAGS)
+
+Salesman.o: Salesman.cpp
+	$(CPP) -c Salesman.cpp -o Salesman.o $(CXXFLAGS)
